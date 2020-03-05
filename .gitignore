@@ -1,0 +1,76 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+
+### React
+/react-app/node_modules
+/react-app/.pnp
+/react-app/.pnp.js
+
+# testing
+/react-app/coverage
+
+# production
+/react-app/build
+
+# misc
+/react-app/.DS_Store
+/react-app/.env.local
+/react-app/.env.development.local
+/react-app/.env.test.local
+/react-app/.env.production.local
+
+/react-app/npm-debug.log*
+/react-app/yarn-debug.log*
+/react-app/yarn-error.log*
+
+### Angular
+
+/angular-app/node_modules
+/angular-app/.pnp
+/angular-app/.pnp.js
+
+# testing
+/angular-app/coverage
+
+# production
+/angular-app/build
+
+# misc
+/angular-app/.DS_Store
+/angular-app/.env.local
+/angular-app/.env.development.local
+/angular-app/.env.test.local
+/angular-app/.env.production.local
+
+/angular-app/npm-debug.log*
+/angular-app/yarn-debug.log*
+/angular-app/yarn-error.log*
+
+### VUE
+
+/vue-app/.DS_Store
+/vue-app/node_modules
+/vue-app/dist
+
+# local env files
+/vue-app/.env.local
+/vue-app/.env.*.local
+
+# Log files
+/vue-app/npm-debug.log*
+/vue-app/yarn-debug.log*
+/vue-app/yarn-error.log*
+
+# Editor directories and files
+/vue-app/.idea
+/vue-app/.vscode
+/vue-app/*.suo
+/vue-app/*.ntvs*
+/vue-app/*.njsproj
+/vue-app/*.sln
+/vue-app/*.sw?
+
+### Backend
+/node-app/node_modules
+
