@@ -1,0 +1,239 @@
+{
+	"info": {
+		"_postman_id": "c7709b84-d57a-4adf-9fc1-1e382710f335",
+		"name": "Skills IT Backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "TEST [php] api/buildings",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1126c596-3487-4352-a3e6-99a959e38222",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"",
+							"var schema = {",
+							"    \"properties\": {",
+							"        \"id\": { \"type\": \"integer\" },",
+							"        \"name\": { \"type\": \"string\" },",
+							"        \"number_of_floors\": { \"type\": \"integer\" },",
+							"        \"address\": { \"type\": \"string\" },",
+							"        \"count_of_flats\": { \"type\": \"integer\" },",
+							"    },",
+							"    \"required\": [\"name\",\"number_of_floors\",\"address\",\"count_of_flats\"]",
+							"};",
+							"",
+							"pm.test('Schema is valid', function() {",
+							"  pm.expect(tv4.validate(jsonData[0],schema)).to.be.true;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://skills-it.hu/api/buildings",
+					"host": [
+						"http://skills-it.hu"
+					],
+					"path": [
+						"api",
+						"buildings"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "TEST [php] api/buildings",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://skills-it.hu/api/buildings",
+							"host": [
+								"http://skills-it.hu"
+							],
+							"path": [
+								"api",
+								"buildings"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 06 Mar 2020 07:17:25 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.3.11"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Flower Garden\",\n        \"num_of_floors\": 2,\n        \"address\": \"1234 Budapest, Flower street 567\",\n        \"cnt_flats\": 60,\n        \"cnt_sold\": 2\n    },\n    {\n        \"id\": 2,\n        \"name\": \"Shanghai Park\",\n        \"num_of_floors\": 7,\n        \"address\": \"1098 Budapest, Central square 123\",\n        \"cnt_flats\": 42,\n        \"cnt_sold\": 1\n    },\n    {\n        \"id\": 3,\n        \"name\": \"Green Trees\",\n        \"num_of_floors\": 1,\n        \"address\": \"9000 Győr, Millenium Park 1\",\n        \"cnt_flats\": 100,\n        \"cnt_sold\": 0\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "TEST [php] api/flats",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a22ac1b8-53a6-4194-8064-a9c3634707d9",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"",
+							"var schema = {",
+							"    \"properties\": {",
+							"        \"id\": { \"type\": \"integer\" },",
+							"        \"building_id\": { \"type\": \"integer\" },",
+							"        \"ref\": { \"type\": \"string\" },",
+							"        \"floor\": { \"type\": \"integer\" },",
+							"        \"rooms\": { \"type\": \"integer\" },",
+							"        \"orientation\": { \"type\": \"string\" },",
+							"        \"net_area\": { \"type\": \"number\" },",
+							"        \"balcony_area\": { \"type\": \"integer\" },",
+							"        \"price\": { \"type\": \"number\" },",
+							"        \"sold\": { \"type\": \"boolean\" }",
+							"    },",
+							"    \"required\": [\"building_id\",\"floor\",\"rooms\", \"orientation\", \"net_area\", \"balcony_area\", \"price\", \"sold\"]",
+							"};",
+							"",
+							"pm.test('Schema is valid', function() {",
+							"  pm.expect(tv4.validate(jsonData[0],schema)).to.be.true;",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://skills-it.hu/api/flats",
+					"host": [
+						"http://skills-it.hu"
+					],
+					"path": [
+						"api",
+						"flats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TEST [php] api/flats/:id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0cd3eafa-8d92-498d-9d96-1f9d0b51dd55",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"",
+							"var schema = {",
+							"    \"properties\": {",
+							"        \"id\": { \"type\": \"integer\" },",
+							"        \"building_id\": { \"type\": \"integer\" },",
+							"        \"ref\": { \"type\": \"string\" },",
+							"        \"floor\": { \"type\": \"integer\" },",
+							"        \"rooms\": { \"type\": \"integer\" },",
+							"        \"orientation\": { \"type\": \"string\" },",
+							"        \"net_area\": { \"type\": \"number\" },",
+							"        \"balcony_area\": { \"type\": \"integer\" },",
+							"        \"price\": { \"type\": \"number\" },",
+							"        \"sold\": { \"type\": \"boolean\" }",
+							"    },",
+							"    \"required\": [\"building_id\",\"floor\",\"rooms\", \"orientation\", \"net_area\", \"balcony_area\", \"price\", \"sold\"]",
+							"};",
+							"",
+							"pm.test('Schema is valid', function() {",
+							"  pm.expect(tv4.validate(jsonData[0],schema)).to.be.true;",
+							"});",
+							"",
+							"pm.test('UPDATE - price has to be 99.99', function() {",
+							"  pm.expect(jsonData.price).to.equal(99.99);",
+							"});",
+							"",
+							"pm.test('ID has to be 61', function() {",
+							"  pm.expect(jsonData.id).to.equal(61);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"building_id\": 2,\n    \"ref\": \"1000\",\n    \"floor\": 1,\n    \"rooms\": 2,\n    \"orientation\": \"NE\",\n    \"net_area\": 61.9,\n    \"balcony_area\": 0,\n    \"price\": 99.99,\n    \"sold\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://skills-it.hu/api/flats/61",
+					"host": [
+						"http://skills-it.hu"
+					],
+					"path": [
+						"api",
+						"flats",
+						"61"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
