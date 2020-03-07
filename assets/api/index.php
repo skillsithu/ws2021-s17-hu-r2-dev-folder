@@ -41,8 +41,9 @@ $url = $_SERVER['REQUEST_URI'];
 list($path,$params) = explode("?", $url);
 
 if(preg_match("/api/", $path)) {
+	header("Access-Control-Allow-Origin: *");
 	header('Content-Type: application/json');
-
+	
 	$method = 'GET';
 	$data = [];
 
